@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ac.uk.student.teamwork.mapper.IceCreamSizeMapper" >
+  <resultMap id="BaseResultMap" type="com.ac.uk.student.teamwork.pojo.IceCreamSize" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="size" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="cost" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, size, cost
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from ice_cream_size
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ice_cream_size
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ac.uk.student.teamwork.pojo.IceCreamSize" >
+    insert into ice_cream_size (id, size, cost
+      )
+    values (#{id,jdbcType=INTEGER}, #{size,jdbcType=VARCHAR}, #{cost,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ac.uk.student.teamwork.pojo.IceCreamSize" >
+    insert into ice_cream_size
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="size != null" >
+        size,
+      </if>
+      <if test="cost != null" >
+        cost,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="size != null" >
+        #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="cost != null" >
+        #{cost,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ac.uk.student.teamwork.pojo.IceCreamSize" >
+    update ice_cream_size
+    <set >
+      <if test="size != null" >
+        size = #{size,jdbcType=VARCHAR},
+      </if>
+      <if test="cost != null" >
+        cost = #{cost,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ac.uk.student.teamwork.pojo.IceCreamSize" >
+    update ice_cream_size
+    set size = #{size,jdbcType=VARCHAR},
+      cost = #{cost,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
