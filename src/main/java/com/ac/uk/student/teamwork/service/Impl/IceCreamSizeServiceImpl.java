@@ -8,6 +8,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+/**
+ * @description: Bridging the front-end and back-end service class IceCreamSizeServiceImpl
+ * @author: Peter
+ * @date:2021-2-28
+ * @reviewer: Rentian
+ * @date: 2021-3-7
+ * @version: 1.0
+ */
 @Service
 public class IceCreamSizeServiceImpl implements IceCreamSizeService {
 

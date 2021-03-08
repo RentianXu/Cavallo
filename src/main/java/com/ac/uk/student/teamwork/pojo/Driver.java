@@ -2,6 +2,15 @@ package com.ac.uk.student.teamwork.pojo;
 
 import java.util.Date;
 
+
+/**
+ * @description: Pojo Driver class for database access
+ * @author: Peter
+ * @date:
+ * @reviewer: Rentian
+ * @date: 2021-3-7
+ * @version: 1.0
+ */
 public class Driver {
     private Integer id;
 

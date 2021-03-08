@@ -14,21 +14,21 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from ice_cream_size
+    from icecream_size
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from ice_cream_size
+    delete from icecream_size
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.ac.uk.student.teamwork.pojo.IceCreamSize" >
-    insert into ice_cream_size (id, size, cost
+    insert into icecream_size (id, size, cost
       )
     values (#{id,jdbcType=INTEGER}, #{size,jdbcType=VARCHAR}, #{cost,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.ac.uk.student.teamwork.pojo.IceCreamSize" >
-    insert into ice_cream_size
+    insert into icecream_size
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -53,7 +53,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.ac.uk.student.teamwork.pojo.IceCreamSize" >
-    update ice_cream_size
+    update icecream_size
     <set >
       <if test="size != null" >
         size = #{size,jdbcType=VARCHAR},
@@ -65,7 +65,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.ac.uk.student.teamwork.pojo.IceCreamSize" >
-    update ice_cream_size
+    update icecream_size
     set size = #{size,jdbcType=VARCHAR},
       cost = #{cost,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}

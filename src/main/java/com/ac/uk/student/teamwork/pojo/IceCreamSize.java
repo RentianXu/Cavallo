@@ -1,5 +1,14 @@
 package com.ac.uk.student.teamwork.pojo;
 
+
+/**
+ * @description: Pojo IceCreamSize class for database access
+ * @author: Peter
+ * @date:
+ * @reviewer: Rentian
+ * @date: 2021-3-7
+ * @version: 1.0
+ */
 public class IceCreamSize {
     private Integer id;
 

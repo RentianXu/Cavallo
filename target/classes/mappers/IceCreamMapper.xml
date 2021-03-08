@@ -17,11 +17,11 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from ice_cream
+    from icecream
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from ice_cream
+    delete from icecream
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.ac.uk.student.teamwork.pojo.IceCream" >
@@ -33,7 +33,7 @@
       )
   </insert>
   <insert id="insertSelective" parameterType="com.ac.uk.student.teamwork.pojo.IceCream" >
-    insert into ice_cream
+    insert into icecream
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -76,7 +76,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.ac.uk.student.teamwork.pojo.IceCream" >
-    update ice_cream
+    update icecream
     <set >
       <if test="type != null" >
         type = #{type,jdbcType=VARCHAR},
@@ -97,7 +97,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.ac.uk.student.teamwork.pojo.IceCream" >
-    update ice_cream
+    update icecream
     set type = #{type,jdbcType=VARCHAR},
       image = #{image,jdbcType=VARCHAR},
       surcharge = #{surcharge,jdbcType=DOUBLE},

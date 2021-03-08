@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ac.uk.student.teamwork.mapper.StaffMapper">
+    <!--find all staff-->
+    <select id="findAll" resultType="Staff">
+        select * from staff
+    </select>
+    <!--find staff by staff user name -->
+    <select id="findByStaffName" resultType="Staff">
+        select * from staff where username = #{username}
+    </select>
+    <!--staff login -->
+    <select id="loginStaff" resultType="Staff">
+        select * from staff where username=#{username} and password = #{password}
+    </select>
+    <!--staff register -->
+    <insert id="registerStaff" parameterType="Staff">
+        insert into staff(id,username,password) values (#{id},#{username},#{password})
+    </insert>
+    <!--change password-->
+    <update id="updateStaffPassword" parameterType="Staff">
+        update staff set password=#{password} where username=#{username}
+    </update>
+</mapper>

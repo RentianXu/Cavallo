@@ -7,6 +7,15 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+
+/**
+ * @description: Mapper mapping class for database access
+ * @author: Peter
+ * @date:
+ * @reviewer: Rentian
+ * @date: 2021-3-7
+ * @version: 1.0
+ */
 @Mapper
 @Repository
 public interface IceCreamMapper {
