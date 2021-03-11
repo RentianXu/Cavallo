@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    @description Customer mapper xml
+    @author Andrew Faber
+    @date 26/02/2021 17:00
+    @version 1.0
+    @reviewer Rentian
+    @date 9/3/2021
+-->
+<mapper namespace="com.ac.uk.student.teamwork.mapper.CustomerMapper">
+    <!-- Find all customers -->
+    <select id="findAll" resultType="Customer">
+        select * from customer
+    </select>
+    <!-- Find a Customer with unique customer id -->
+    <select id="findById" resultType="Customer">
+        select * from customer where id = #{id}
+    </select>
+    <!-- Login Customer -->
+    <select id="loginCustomer" resultType="Customer">
+        select * from customer where id=#{id} and password=#{password}
+    </select>
+    <!-- Register new Customer-->
+    <select id="registerCustomer" parameterType="Customer">
+        insert into customer(id, address, firstname, lastname, password, phone) values (#{id},#{address},#{firstname},#{lastname},#{password},#{phone})
+    </select>
+    <!-- Update Customer password-->
+    <select id="updateCustomerPassword" parameterType="Customer">
+        update customer set password=#{password} where id=#{id}
+    </select>
+</mapper>
