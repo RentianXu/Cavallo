@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ac.uk.student.teamwork.mapper.OrdersMapper">
+    <!--Query all orders information-->
+    <select id="findAll" resultType="Orders">
+        select * from orders
+    </select>
+    <!--Find orders information by id-->
+    <select id="selectByPrimaryKey" resultType="Orders">
+        select * from orders where id = #{id}
+    </select>
+    <!--Use customerId to find orders information-->
+    <select id="findByCustomerId" resultType="Orders">
+        select * from orders where customer_id=#{customer_id}
+    </select>
+    <!--Create Order-->
+    <insert id="createOrder" parameterType="Orders">
+        insert into orders(customer_id,address,postcode,order_time,order_type) values (#{customer_id},#{address},#{postcode},#{order_time},#{order_type})
+    </insert>
+    <!--Change orders status-->
+    <update id="updateOrderType" parameterType="Orders">
+        update orders set order_type=#{order_type} where id=#{id}
+    </update>
+    <!--Delete orders based on id-->
+    <delete id="deleteByPrimaryKey" parameterType="Orders">
+        delete from orders where id = #{id}
+    </delete>
+
+
+
+</mapper>

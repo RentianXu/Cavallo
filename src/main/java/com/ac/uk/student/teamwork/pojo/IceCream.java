@@ -3,7 +3,7 @@ package com.ac.uk.student.teamwork.pojo;
 /**
  * @description: Pojo IceCream class for database access
  * @author: Peter
- * @date:
+ * @date: 2021-2-28
  * @reviewer: Rentian
  * @date: 2021-3-7
  * @version: 1.0

@@ -1,24 +1,14 @@
 package com.ac.uk.student.teamwork;
 
-import com.ac.uk.student.teamwork.info.ResultInfo;
-import com.ac.uk.student.teamwork.mapper.IceCreamMapper;
-import com.ac.uk.student.teamwork.mapper.OrderItemMapper;
-import com.ac.uk.student.teamwork.mapper.StaffMapper;
-import com.ac.uk.student.teamwork.mapper.UserMapper;
-import com.ac.uk.student.teamwork.pojo.IceCream;
-import com.ac.uk.student.teamwork.pojo.OrderItem;
-import com.ac.uk.student.teamwork.pojo.Staff;
-import com.ac.uk.student.teamwork.pojo.User;
-import com.ac.uk.student.teamwork.service.Impl.IceCreamServiceImpl;
-import com.ac.uk.student.teamwork.service.Impl.OrderItemServiceImpl;
-import com.ac.uk.student.teamwork.service.Impl.StaffServiceImpl;
-import com.ac.uk.student.teamwork.service.Impl.UserServiceImpl;
-import com.ac.uk.student.teamwork.service.UserService;
+import com.ac.uk.student.teamwork.mapper.*;
+import com.ac.uk.student.teamwork.pojo.*;
+import com.ac.uk.student.teamwork.service.Impl.*;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 @SpringBootTest
@@ -49,6 +39,17 @@ LoginApplicationTests {
     @Autowired
     OrderItemServiceImpl orderItemServiceImpl;
 
+    @Autowired
+    CustomerMapper customerMapper;
+
+    @Autowired
+    CustomerServiceImpl customerServiceImpl;
+
+    @Autowired
+    OrdersMapper ordersMapper;
+
+    @Autowired
+    OrderServiceImpl orderServiceImpl;
 
 
     @Test
@@ -83,8 +84,23 @@ LoginApplicationTests {
 //        OrderItem orderItem = new OrderItem(1,1,3,1,30);
 //        orderItemServiceImpl.addCart(orderItem);
 
-       List<OrderItem> arrayList = orderItemServiceImpl.listOrderItemByOrderId(3);
-        System.out.println(arrayList);
+//        List<OrderItem> arrayList = orderItemServiceImpl.listOrderItemByOrderId(3);
+//        System.out.println(arrayList);
+
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.set(2020,5,5,12,5,44);
+//          Calendar calendar = Calendar.getInstance();
+//          calendar.set(2020,3,4,6,7,50);
+//          Orders order = new Orders(4,1,1,"NE4 5SF","RRVV", calendar.getTime(),1,"sc");
+//          Orders orders = orderServiceImpl.selectByPrimaryKey(3);
+//          System.out.println(orders);
+//          orderServiceImpl.createOrder(order);
+//        orderServiceImpl.deleteByPrimaryKey(4);
+
+
+orderServiceImpl.updateOrderType(1,3);
+
+
 
     }
 }
