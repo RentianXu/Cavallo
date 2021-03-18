@@ -20,7 +20,7 @@
         insert into orders(customer_id,address,postcode,order_time,order_type) values (#{customer_id},#{address},#{postcode},#{order_time},#{order_type})
     </insert>
     <!--Change orders status-->
-    <update id="upateOrderType" parameterType="Orders">
+    <update id="updateOrderType" parameterType="Orders">
         update orders set order_type=#{order_type} where id=#{id}
     </update>
     <!--Delete orders based on id-->

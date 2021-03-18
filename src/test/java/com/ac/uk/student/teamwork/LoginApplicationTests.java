@@ -69,8 +69,8 @@ LoginApplicationTests {
 
 
 
-//        Staff staff = new Staff(1,"Rentian","111");
-//        staffServiceImpl.registerStaff(staff);
+        Staff staff = new Staff(2,"yutong","222");
+        staffServiceImpl.registerStaff(staff);
 //        Staff staff1 = staffServiceImpl.findByStaffName("Rentian");
 //        System.out.println(staff1);
 
@@ -98,7 +98,7 @@ LoginApplicationTests {
 //        orderServiceImpl.deleteByPrimaryKey(4);
 
 
-orderServiceImpl.updateOrderType(1,3);
+      orderServiceImpl.updateOrderType(1,3);
 
 
 

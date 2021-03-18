@@ -24,11 +24,11 @@
         select * from customer where id=#{id} and password=#{password}
     </select>
     <!-- Register new Customer-->
-    <select id="registerCustomer" parameterType="Customer">
-        insert into customer(id, address, firstname, lastname, password, phone) values (#{id},#{address},#{firstname},#{lastname},#{password},#{phone})
-    </select>
+    <insert id="registerCustomer" parameterType="Customer">
+        insert into customer(id, address, firstname, lastname, email, password, phone) values (#{id},#{address},#{firstname},#{lastname},#{password},#{phone},#{email})
+    </insert>
     <!-- Update Customer password-->
-    <select id="updateCustomerPassword" parameterType="Customer">
+    <update id="updateCustomerPassword" parameterType="Customer">
         update customer set password=#{password} where id=#{id}
-    </select>
+    </update>
 </mapper>
