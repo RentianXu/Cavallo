@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--All meta Tags area-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Tab title area-->
+    <title>Cavallo | Sign In</title>
+
+    
+    <!--Bootstrap min CSS-->
+    <link rel="stylesheet" href="../CSS/bootstrap.min.css">
+
+    <!--FontAwesome CSS-->
+    <link rel="stylesheet" href="../CSS/vendors/fontawesome-free-5.15.2-web/css/all.css">
+
+    <!--Style CSS-->
+    <link rel="stylesheet" href="../CSS/style.css">
+
+
+
+
+</head>
+<body>
+    <section id="main-wrapper-area">
+        <div class="container-fluid p-0">
+            <nav class="navigation-area-start navbar navbar-expand-lg p-4">
+                <div class="navbar-brand"><a href="../HTML/index.html" id="logo" class=""><img src="../Assets/Logo1.png" title="Cavallo" alt="Logo"></a></div>
+                
+                <h3>Sign In</h3>
+                <button class="navbar-toggler mr-2" onclick="btnToggle(this)" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </button>
+
+                <div class="navigation-area-content collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <a class="nav-items" href="../HTML/OrderPage.html" class="nav-link">Place Order<li class="nav-item"></li></a>
+                        <a class="nav-items" href="../HTML/sign-up.html" class="nav-link">Sign Up<li class="nav-item"></li></a>
+                        <a class="nav-items" href="../HTML/sign-in.html" class="nav-link">Log In<li class="nav-item"></li></a>
+                    </ul>
+                </div>
+            </nav>
+            
+           
+            <!-- ======================== Sign in section ======================== -->
+            <section id="signin-form">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-1 col-md-4"></div>
+                        <div class="col-10 col-md-4 p-0">
+                            <div class="signin-form-wrapper my-auto">
+                                <form class="p-5 text-center" action="/customer/login" method="post">
+                                    <p>Username:</p>
+                                    <input name="id"  class="form-control mb-5" type="text"   autocomplete="off" id = "username"/>
+                                    <p>Password:</p>
+                                    <input name="password"  class="form-control mb-5" type="password"  autocomplete="off" id="password">
+                                    <div class="clearfix">
+
+                                        <a class="btn float-left" href="../HTML/sign-up.html">Sign Up</a>
+<!--                                        <a class="btn float-right" type="submit" >Log in</a>-->
+                                        <input class="btn float-left" type = "submit" value="Log in">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-1 col-md-4"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </section>
+
+
+
+
+    <!-- Jquery 3.5.1 JS -->
+    <script src="assets/script/jQuery-3.5.1.js"></script>
+
+    <!-- Popper Min JS -->
+    <script src="assets/script/popper.min.js"></script>
+
+    <!-- Bootstrap min JS -->
+    <script src="assets/script/bootstrap.min.js"></script>
+    
+    <!-- Smoothe scroll JS -->
+    <script src="assets/script/smooth-scroll.polyfills.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="assets/script/aos.js"></script>
+
+    <!-- Custom Script sheet -->
+    <script src="assets/script/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--All meta Tags area-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Tab title area-->
+    <title>Cavallo | Sign Up</title>
+
+   
+
+    <!--Bootstrap min CSS-->
+    <link rel="stylesheet" href="../CSS/bootstrap.min.css">
+
+    <!--FontAwesome CSS-->
+    <link rel="stylesheet" href="../CSS/vendors/fontawesome-free-5.15.2-web/css/all.css">
+
+    <!--Style CSS-->
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+    <section id="main-wrapper-area">
+        <div class="container-fluid p-0">
+            <nav class="navigation-area-start navbar navbar-expand-lg p-4">
+                <div class="navbar-brand"><a href="../HTML/index.html" id="logo" class=""><img src="../Assets/Logo1.png" title="Cavallo" alt="Logo"></a></div>
+                
+                <h3>Sign Up</h3>
+                <button class="navbar-toggler mr-2" onclick="btnToggle(this)" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                </button>
+
+                <div class="navigation-area-content collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <a class="nav-items" href="../HTML/OrderPage.html" class="nav-link">Place Order<li class="nav-item"></li></a>
+                        <a class="nav-items" href="../HTML/sign-up.html" class="nav-link">Sign Up<li class="nav-item"></li></a>
+                        <a class="nav-items" href="../HTML/sign-in.html" class="nav-link">Log In<li class="nav-item"></li></a>
+                    </ul>
+                </div>
+            </nav>
+            
+           
+            <!-- ======================== Sign Up section ======================== -->
+            <section id="signup-form">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-1 col-md-1"></div>
+                        <div class="col-10 col-md-10 p-0">
+                            <div class="signup-form-wrapper my-auto">
+                                <form class="form-inline text-center p-5" action="/customer/register" method="post">
+                                    <div class="my-3 col-lg-6"><span class="float-left">First name</span><input type="text" class="form-control float-right" name="firstname" id="firstname"   autocomplete="off" require/></div>
+                                    <div class="my-3 col-lg-6"><span class="float-left">Last name</span><input type="text" class="form-control float-right" name="lastname" id="lastname"  autocomplete="off" /></div>
+                                    <div class="my-3 col-lg-6"><span class="float-left">Email Address</span><input type="text" class="form-control float-right" name="email" id="email"  autocomplete="off" require/></div>
+                                    <div class="my-3 col-lg-6"><span class="float-left">Password</span><input type="password" class="form-control float-right" name="password" id="password"  autocomplete="off" /></div>
+<!--                                    <div class="my-3 col-lg-6"><span class="float-left">Street</span><input type="text" class="form-control float-right" name="street" id="street" autocomplete="off" require/></div>-->
+<!--                                    <div class="my-3 col-lg-6"><span class="float-left">City</span><input type="text" class="form-control float-right" name="city" id="city"   autocomplete="off" require/></div>-->
+<!--                                    <div class="my-3 col-lg-6"><span class="float-left">Postcode</span><input type="text" class="form-control float-right" name="postcode" id="postcode"  autocomplete="off" require/></div>-->
+                                    <div class="my-3 col-lg-6"><span class="float-left">Phone Number</span><input type="text" class="form-control float-right" name="phone" id="phone"   autocomplete="off" require/></div>
+<!--                                    <div class="my-3 col-lg-6"><span class="float-left">Birthday</span><input type="datetime" class="form-control float-right" name="birthday" id="birthday"  autocomplete="off" /></div>-->
+                                    <div class="my-3 signup-btn-grp col-lg-12">
+                                        <a class="btn mr-2" type="submit" href="sign-up.html">Reset</a>
+                                        <input class="btn ml-2" type="submit" name="Done" id="Done" value="Done">
+                                    </div>
+                                    
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-1 col-md-1"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+
+
+    <!-- Jquery 3.5.1 JS -->
+    <script src="assets/script/jQuery-3.5.1.js"></script>
+
+    <!-- Popper Min JS -->
+    <script src="assets/script/popper.min.js"></script>
+
+    <!-- Bootstrap min JS -->
+    <script src="assets/script/bootstrap.min.js"></script>
+    
+    <!-- Smoothe scroll JS -->
+    <script src="assets/script/smooth-scroll.polyfills.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="assets/script/aos.js"></script>
+
+    <!-- Custom Script sheet -->
+    <script src="assets/script/script.js"></script>
+</body>
+</html>
