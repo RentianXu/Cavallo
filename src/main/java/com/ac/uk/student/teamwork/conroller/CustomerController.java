@@ -2,6 +2,7 @@ package com.ac.uk.student.teamwork.conroller;
 
 import com.ac.uk.student.teamwork.info.ResultInfo;
 import com.ac.uk.student.teamwork.pojo.Customer;
+import com.ac.uk.student.teamwork.pojo.CustomerRegisterDetail;
 import com.ac.uk.student.teamwork.pojo.User;
 import com.ac.uk.student.teamwork.service.Impl.CustomerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,7 @@ public class CustomerController {
         if(customer1 != null){
 
             request.getSession().setAttribute("customer",customer1);
-            response.sendRedirect("/HTML/OrderPage.html");
+            response.sendRedirect("/HTML/OrderPage - Signed In.html");
         }else{
             HttpSession session = request.getSession();
             session.setAttribute("message","error");
@@ -39,8 +40,16 @@ public class CustomerController {
     }
 
     @PostMapping(value = "/register")
-    public void register(Customer customer, HttpServletRequest request, HttpServletResponse response) throws IOException, LoginException {
-        if(customer != null){
+    public void register(CustomerRegisterDetail customerRegisterDetail, HttpServletRequest request, HttpServletResponse response) throws IOException, LoginException {
+
+
+        if(customerRegisterDetail != null){
+            String street = customerRegisterDetail.getStreet();
+            String city = customerRegisterDetail.getCity();
+            String postCode = customerRegisterDetail.getPostcode();
+
+            String address = postCode +"-"+city+"-"+street;
+            Customer customer = new Customer(null,address,customerRegisterDetail.getEmail(),customerRegisterDetail.getFirstname(),customerRegisterDetail.getLastname(),customerRegisterDetail.getPassword(),customerRegisterDetail.getPhone());
             customerServiceImpl.registerCustomer(customer);
             response.sendRedirect("/HTML/sign-in.html");
         }else{

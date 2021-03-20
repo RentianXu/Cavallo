@@ -1,4 +1,4 @@
-<!-- *@description: not signed in order page allows customers to add items to a basket, creates  JSON object.
+<!-- *@description: signed in order page allows customers to add items to a basket, creates  JSON object.
 
 
 
@@ -12,8 +12,6 @@
 
 *@version: 4.0 -->
 
-
-
 <!DOCTYPE html>
 <html lang=en>
 
@@ -23,61 +21,53 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Order Page </title>
-<!-- CSS / BOOTSTRAP STYLING -->
+<!-- CSS BOOTSTRAP STYLING -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link href="../CSS/OrderPage.css" type="text/css" rel="stylesheet">
 <!-- JS LINK -->
     <script src="../JS/store.js" async></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 
+    
     <script src="../JS/OrderPage.js"></script>
 
 </head>
 
 <body>
-<!-- NAVBAR ON LARGE SCREEN -->
+
+    <!-- LARGE SCREEN NAVBAR -->
     <section class="sticky-top shadow p-4 mb-5" id="header">
         <div class="container-fluid">
             <nav class="navigation-area-start navbar navbar-expand p-0">
 
                 <div class="navbar-brand">
-                    <a href="../HTML/index.html" id="logolarge" class=""><img src="../Assets/Logo1.png" title="Cavallo"
-                            alt="Logo" width="161" height="73" id=""></a>
+                    <a href="../HTML/index.html" id="logolarge" class=""><img src="../Assets/Logo1.png" title="Cavallo" alt="Logo"
+                            width="161" height="73" id=""></a>
                 </div>
 
                 <h3 id="title">ORDER PAGE</h3>
                 <div class="navbar navigation-area-content collapse navbar-collapse justify-content-end" id="large">
                     <button href="../HTML/OrderPage.html" class="btn btn-outline-secondary bg-white text-secondary nav-item" role="button"
                         id="buttons" id="button1">Place Order</button>
-                    <button href="../HTML/sign-up.html" class="btn btn-outline-secondary bg-white text-secondary nav-item" role="button"
-                        id="buttons" id="button2">Sign Up</button>
-                    <button href="../HTML/sign-in.html" class="btn btn-outline-secondary bg-white text-secondary nav-item" role="button"
-                        id="buttons" id="button3">Log In</button>
                 </div>
             </nav>
         </div>
     </section>
     </div>
-<!-- NAVBAR ON SMALL SCREEN -->
+<!-- SMALL SCREEN NAVBAR -->
     <section class="container-fluid sticky-top shadow p-4 mb-4" id="header">
         <nav class="navbar container-fluid">
 
             <div class="container-fluid justify-content-center">
-                <a href="../HTML/index.html" id="logosmall" class=""><img src="../Assets/Logo1.png" title="Cavallo" alt="Logo"
+                <a href="../HTML/index.html" id="logosmall" class=""><img src="Logo1.PNG" title="Cavallo" alt="Logo"
                         width="120.75" height="54.75"></a>
             </div>
 
             <div class="container-fluid">
                 <div class="navbar navigation-area-content navbar-expand mx-auto" id="small">
-                    <button href="#" class="btn btn-outline-secondary bg-white text-secondary nav-item" id="buttons"
+                    <button href="../HTML/OrderPage.html" class="btn btn-outline-secondary bg-white text-secondary nav-item" id="buttons"
                         id="button1">Place Order</button>
-                    <button href="#" class="btn btn-outline-secondary bg-white text-secondary nav-item" id="buttons"
-                        id="button2">Sign Up</button>
-                    <button href="#" class="btn btn-outline-secondary bg-white text-secondary nav-item" id="buttons"
-                        id="button3">Log In</button>
                 </div>
             </div>
         </nav>
@@ -112,7 +102,7 @@
 
 
 
-<!-- BACKGROUND  -->
+<!-- BACKGROUND -->
             <div class="background col-md-11 col-lg-12 col-sm-12">
 
 
@@ -121,7 +111,7 @@
                 <div class="container">
                     <div class="row">
 
-<!-- CONTAINER INCLUDING MENU ITEMS -->
+<!-- MENU ITEMS -->
 
                         <div class="col-md-10 col-lg-11 col-sm-12 col-xs-12">
                             <form class="form-horizontal" id="orderform">
@@ -661,23 +651,23 @@ Pale & pink with additional strawberry bits throughout to give it that extra pop
                                         <strong class="cart-total-title">total: </strong>
                                         <span class="cart-total-price">£</span>
                                     </div>
-                                    <!-- CONTINUE BUTTON -->
-                                    <div class="row"></div>
-                                    <a href="../HTML/Payment.html" class="btn btn-warning btn-lg" id="formbuttons" type="submit"
-                                        form="orderform"> continue</a>
+                                    <!-- CONTINUE TO PAYMENT -->
+                                        <a href="../HTML/Payment - Signed In.html" class="btn btn-warning btn-lg" id="formbuttons" type="submit" form="orderform"> continue</a>
+                                    </div>
+
+
+                                </section>
+
                             </div>
+                        </form>
                         </div>
 
 
-                           
-
-                        </div>
-
-                       
                     </div>
 
 
-                
+
+                </div>
 
 
 
@@ -685,11 +675,11 @@ Pale & pink with additional strawberry bits throughout to give it that extra pop
 
 
 
+
+            <div class="col-md-2 col-lg-2 col-sm-0">
+            </div>
         </div>
 
-    </div>
-</div>
-    
 
 
 
@@ -716,24 +706,20 @@ Pale & pink with additional strawberry bits throughout to give it that extra pop
 
 
 
+<!-- JQUERY LINK -->
 
-
-
-
-<!-- JQUERY SCRIPT LINK -->
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
-        crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+            crossorigin="anonymous"></script>
 
 
 </body>

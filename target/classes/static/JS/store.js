@@ -1,11 +1,23 @@
+//  *@description: javascript for functions of basket and adding items/ removing items
 
+
+
+// *@author: Charlotte Bird
+
+// *@date: 18/3/21
+
+// *@reviewer: 
+
+// *@date: 
+
+// *@version: 3.0 
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
     ready()
 
 }
-
+// function for the remove button in cart. selects buttons by class and when clicked moves the parent of the parenst (the whole row)
 function ready() {
 
     var removeItems = document.getElementsByClassName('btn-danger-remove')
@@ -17,15 +29,14 @@ function ready() {
             //updateCartTotal()
         })
     }
-
+// 
     var quantityInputs = document.getElementsByClassName('cart-quantity-input')
     for (var i = 0; i < quantityInputs.length; i++) {
         var input = quantityInputs[i]
         input.addEventListener('change', quantityChanged)
     }
-
+// add to cart function - selects button by btn-warning and calls add to cart clicked
     var addToCartButtons = document.getElementsByClassName('btn-warning')
-    console.log(addToCartButtons)
 
     for (var i = 0; i < addToCartButtons.length; i++) {
         var button = addToCartButtons[i]
@@ -33,7 +44,7 @@ function ready() {
         button.addEventListener('click', addToCartClicked)
     }
 }
-
+// updates total by taking the class name 'cart-item' within the 'cart-row'.
 function updateCartTotal() {
     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
     var cartRows = cartItemContainer.getElementsByClassName('cart-row')
@@ -41,15 +52,13 @@ function updateCartTotal() {
     for (var i = 0; i < cartRows.length; i++) {
         var cartRow = cartRows[i]
         var priceElement = cartRow.getElementsByClassName('cart-price')[0]
-        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
         var price = parseFloat(priceElement.innerText.replace('£', ''))
-        var quantity = quantityElement.value 
-        total = total + (price * quantity)
+        total = total + price
     }
     total = Math.round(total * 100) / 100
     document.getElementsByClassName('cart-total-price')[0].innerText = '£' + total
 }
-
+// quantity changed function updates cart total and prevents it dropping below 0.
 function quantityChanged(event) {
     var input = event.target
     if (isNaN(input.value) || input.value <= 0) {
@@ -58,20 +67,37 @@ function quantityChanged(event) {
     updateCartTotal()
 }
 
-// anything above here works 
+// add to cart function - associates price with name value
+// takes value and assigns a user friendly name 
+// if the name incldues SC then increase price by 0.75.
+
 
 function addToCartClicked(event) {
-var button = event.target
+    var button = event.target
+ 
+    let prices = {'Small': 1.75, "Medium": 2.25, "Large": 2.75,"Extra Large":  3.50, "Extra Extra Large": 5.75}
+    let sizes = {"-SmallValue": "Small", "-MediumValue": "Medium", "-LargeValue": "Large", "-ExtraLargeValue": "Extra Large", "-ExtraExtraLargeValue": "Extra Extra Large"};
+    let flavours = {"Vanilla": "Vanilla", "DFVanilla": "Dairy Free Vanilla", "Honeycomb":  "Honeycomb", "RNR": "Rum 'n' Raisin", "Mint": "Mint", "Cherry": "Cherry", "Choc": "Chocolate", "SC": "Salted Caramel", "Strawberry": "Strawberry"};
 
-   
-    // var buttonLink = new Object();
-    // buttonLink = {'shop-item-button-CH': 'selectbasicCH', 'shop-item-button-S': 'selectbasicS',
-    //         'shop-item-button-V': 'selectbasicV', 'shop-item-button-R': 'selectbasicR',
-    //         'shop-item-button-M': 'selectbasicM','shop-item-button-SC': 'selectbasicSC',
-    //         'shop-item-button-H': 'selectbasicH','shop-item-button-C': 'selectbasicC'}
+    for (let i in flavours) { 
+        for (let j in sizes) { 
+            tmpRef = i.concat(j)
+            tmpElem = document.getElementById(tmpRef)
+            if  (tmpElem.value > 0){
+                tmpNum = tmpElem.value.concat(" x ")
+                tmpName = sizes[j].concat(" ".concat(flavours[i]))
+                tmpPrice = prices[sizes[j]]
+                if  (i == "SC"){
+                    tmpPrice += 0.75
+                }
+                tmpPrice *= tmpElem.value
+                addItemToCart(tmpNum.concat(tmpName), "£".concat(tmpPrice))
+                tmpElem.value = 0
+            }
 
-   
-
+        } 
+    } 
+    
     // var buttonKey = button.className.split(" ")[3]
     // var butttonValue = buttonLink[buttonKey]
 
@@ -81,18 +107,16 @@ var button = event.target
     // var value = f.options[f.selectedIndex].value;
     //console.log(result)
 
-    console.log(value)
-    addItemToCart(result, value)
     updateCartTotal()
 }
-
+// adds new items to cart using title and value
+// creates a new cart row and adds new cart item and title
 
 function addItemToCart(title, value) {
     var cartRow = document.createElement('div')
     cartRow.classList.add('cart-row')
     var cartItems = document.getElementsByClassName('cart-items')[0]
     var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
-
 
     var cartRowContents = `
         <div class="cart-item cart-column">
@@ -101,15 +125,12 @@ function addItemToCart(title, value) {
         </div>
         <span class="cart-price cart-column">${value}</span>
         <div class="cart-quantity cart-column">
-            // <input class="cart-quantity-input" type="number" value="1">
             <button class="btn btn-danger-remove" type="button">Remove</button>
         </div>`
-
 
     cartRow.innerHTML = cartRowContents
     cartItems.append(cartRow)
     cartRow.getElementsByClassName('btn-danger-remove')[0].addEventListener('click', removeCartItem)
-    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
 }
 
 

@@ -25,7 +25,7 @@
     </select>
     <!-- Register new Customer-->
     <insert id="registerCustomer" parameterType="Customer">
-        insert into customer(id, address, firstname, lastname, email, password, phone) values (#{id},#{address},#{firstname},#{lastname},#{password},#{phone},#{email})
+        insert into customer(id, address, firstname, lastname, email, password, phone) values (#{id},#{address},#{firstname},#{lastname},#{email},#{password},#{phone})
     </insert>
     <!-- Update Customer password-->
     <update id="updateCustomerPassword" parameterType="Customer">

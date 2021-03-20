@@ -20,6 +20,8 @@ public class Customer {
     private String password;
     private String phone;
 
+    public Customer() {
+    }
 
     public Customer(Integer id, String address, String email, String firstname, String lastname, String password, String phone) {
         this.id = id;
@@ -30,6 +32,15 @@ public class Customer {
         this.password = password;
         this.phone = phone;
     }
+
+//    public Customer(String address, String email, String firstname, String lastname, String password, String phone) {
+//        this.address = address;
+//        this.email = email;
+//        this.firstname = firstname;
+//        this.lastname = lastname;
+//        this.password = password;
+//        this.phone = phone;
+//    }
 
     public Integer getid() {
         return id;

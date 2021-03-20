@@ -1,4 +1,14 @@
+/**
+ * @description: This javascript file takes all the values from the order form on the order page and creates a order object that reflects what the customer has chosen to order
+ * @author: Tofunmi Onaeko
+ * @date: 12/03/21
+ * @version: 1.0
+ */
+
 window.addEventListener("load", function() {
+
+  var cID = window.localStorage.getItem('customerID');
+  console.log(cID);
 
 var form = document.getElementById("orderform");
 
@@ -59,6 +69,7 @@ form.addEventListener("submit", function(event) {
   var xlgStrawberryValue = document.getElementById("Strawberry-ExtraLargeValue").value;
   var xxlgStrawberryValue = document.getElementById("Strawberry-ExtraExtraLargeValue").value;
 
+//The code below creates the order object
 var order = {
     
     "Vanilla - Small" : smVanValue,
@@ -116,6 +127,7 @@ var order = {
     "Strawberry - Extra Extra Large" : xxlgStrawberryValue,
 };
 
+//the code below saves the order to local storage so it can be retrieved and used by the Payment page
 window.localStorage.setItem('orderDetails', JSON.stringify(order));
 console.log(order);
 
