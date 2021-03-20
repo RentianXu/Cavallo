@@ -1,0 +1,1223 @@
+<!--
+    @description: This webpage allows the customer to place their order, a JSON file is created and sent to the server when the order is submitted,
+    the customer is then redirected to the correct order confirmation page, this page is shown when the customer has signed in.
+    @author: Tofunmi Onaeko
+    @date: 18/03/21
+    @version: 4.0
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cavallo | Payment</title>
+
+    <!--Required Meta tags-->
+    <meta charset="UTF-8">
+    <meta name= "viewport" content= "width=device-width, initial-scale= 1.0">
+
+    <!--Bootstrap Style Sheet-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <!--HTML Style Sheet-->
+    <link rel="Stylesheet" href="../CSS/Payment.css"> 
+
+    <!--JavaScript Scripts-->
+    <script src="../JS/OrderDetails.js"></script>
+    <script src="../JS/CustomerDetails-SignedIn.js"></script>
+    <script src="../JS/PaymentLarge.js"></script>
+    <script src="../JS/PaymentSmall.js"></script>
+    <script src="../JS/PaymentForm.js"></script>
+
+</head>
+<body>
+    
+    <!--Header - Large Screen-->
+    <section class="sticky-top shadow p-4 mb-5" id="header">
+        <div class="container-fluid">
+            <nav class="navigation-area-start navbar navbar-expand p-0">
+
+                <div class="navbar-brand">
+                    <a href="index.html" id="logolarge" class=""><img src="../Assets/Logo1.png" title="Cavallo" alt="Logo" width="120.75" height="54.75" id=""></a>
+                </div>
+                
+                <h3 id="title">PAYMENT</h3>
+                <div class="navbar navigation-area-content collapse navbar-collapse justify-content-end" id="large">
+                    <a href="OrderPage - Signed In.html" class="btn btn-outline-secondary bg-white text-secondary nav-item" role="button" id="buttons" class="button1">Place Order</a>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <!--Header - Small Screen-->
+    <section class="container-fluid sticky-top shadow p-4 mb-4" id="header">
+        <nav class="navbar container-fluid">
+
+            <div class="container-fluid justify-content-center">
+                    <a href="index.html" id="logosmall" class=""><img src="../Assets/Logo1.png" title="Cavallo" alt="Logo" width="120.75" height="54.75"></a>
+            </div>
+    
+            <div class="container-fluid">
+                <div class="navbar navigation-area-content navbar-expand mx-auto" id="small">
+                    <a href="OrderPage - Signed In.html" class="btn btn-outline-secondary bg-white text-secondary nav-item" role="button" id="buttons" id="button1">Place Order</a>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <div id="hide">
+        <h3 class="d-flex justify-content-center" id="titlesmall">PAYMENT</h3>
+    </div>
+
+    <!--Basket - Large Screen-->
+    <section class="float-lg-end container col-4" id="summarylarge">
+
+        <div id="summarybackgroundlarge">
+            <div id="text">
+
+                <div id="total">
+                    <ul id="newul">
+                        <a>Basket</a>
+                    </ul>
+                </div>
+
+                <!-- A div is created for all flavours and sizes, Javascript identifies which divs to show based on the order created in the Order Page-->
+                <div id="smVanilla" class="flavours">
+                    <ul id="newul">
+                        <a id="smVanillaNumber"></a>
+                        <a id="flavour">Vanilla - Small</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="smVanillaPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="mdVanilla" class="flavours">
+                    <ul id="newul">
+                        <a id="mdVanillaNumber"></a>
+                        <a id="flavour">Vanilla - Medium</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="mdVanillaPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="lgVanilla" class="flavours">
+                    <ul id="newul">
+                        <a id="lgVanillaNumber"></a>
+                        <a id="flavour">Vanilla - Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="lgVanillaPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="xlgVanilla" class="flavours">
+                    <ul id="newul">
+                        <a id="xlgVanillaNumber"></a>
+                        <a id="flavour">Vanilla - Extra Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="xlgVanillaPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="xxlgVanilla" class="flavours">
+                    <ul id="newul">
+                        <a id="xxlgVanillaNumber"></a>
+                        <a id="flavour">Vanilla - Extra Extra Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="xxlgVanillaPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="smDFVanilla" class="flavours">
+                    <ul id="newul">
+                        <a id="smDFVanillaNumber"></a>
+                        <a id="flavour">Dairy Free Vanilla - Small</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="smDFVanillaPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="mdDFVanilla" class="flavours">
+                    <ul id="newul">
+                        <a id="mdDFVanillaNumber"></a>
+                        <a id="flavour">Dairy Free Vanilla - Medium</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="mdDFVanillaPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="lgDFVanilla" class="flavours">
+                    <ul id="newul">
+                        <a id="lgDFVanillaNumber"></a>
+                        <a id="flavour">Dairy Free Vanilla - Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="lgDFVanillaPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="xlgDFVanilla" class="flavours">
+                    <ul id="newul">
+                        <a id="xlgDFVanillaNumber"></a>
+                        <a id="flavour">Dairy Free Vanilla - Extra Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="xlgDFVanillaPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="xxlgDFVanilla" class="flavours">
+                    <ul id="newul">
+                        <a id="xxlgDFVanillaNumber"></a>
+                        <a id="flavour">Dairy Free Vanilla - Extra Extra Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="xxlgDFVanillaPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="smHoneycomb" class="flavours">
+                    <ul id="newul">
+                        <a id="smHoneycombNumber"></a>
+                        <a id="flavour">Honeycomb - Small</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="smHoneycombPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="mdHoneycomb" class="flavours">
+                    <ul id="newul">
+                        <a id="mdHoneycombNumber"></a>
+                        <a id="flavour">Honeycomb - Medium</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="mdHoneycombPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="lgHoneycomb" class="flavours">
+                    <ul id="newul">
+                        <a id="lgHoneycombNumber"></a>
+                        <a id="flavour">Honeycomb - Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="lgHoneycombPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="xlgHoneycomb" class="flavours">
+                    <ul id="newul">
+                        <a id="xlgHoneycombNumber"></a>
+                        <a id="flavour">Honeycomb - Extra Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="xlgHoneycombPrice"></a>
+                    </ul>
+                </div>
+
+                <!--ISSUE LABEL NOT LOADING-->
+                <div id="xxlgHoneycomb" class="flavours">
+                    <ul id="newul">
+                        <a id="xxlgHoneycombNumber"></a>
+                        <a id="flavour">Honeycomb - Extra Extra Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="xxlgHoneycombPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="smRNR" class="flavours">
+                    <ul id="newul">
+                        <a id="smRNRNumber"></a>
+                        <a id="flavour">Rum 'n' Raisin - Small</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="smRNRPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="mdRNR" class="flavours">
+                    <ul id="newul">
+                        <a id="mdRNRNumber"></a>
+                        <a id="flavour">Rum 'n' Raisin - Medium</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="mdRNRPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="lgRNR" class="flavours">
+                    <ul id="newul">
+                        <a id="lgRNRNumber"></a>
+                        <a id="flavour">Rum 'n' Raisin - Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="lgRNRPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="xlgRNR" class="flavours">
+                    <ul id="newul">
+                        <a id="xlgRNRNumber"></a>
+                        <a id="flavour">Rum 'n' Raisin - Extra Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="xlgRNRPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="xxlgRNR" class="flavours">
+                    <ul id="newul">
+                        <a id="xxlgRNRNumber"></a>
+                        <a id="flavour">Rum 'n' Raisin - Extra Extra Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="xxlgRNRPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="smMint" class="flavours">
+                    <ul id="newul">
+                        <a id="smMintNumber"></a>
+                        <a id="flavour">Mint - Small</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="smMintPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="mdMint" class="flavours">
+                    <ul id="newul">
+                        <a id="mdMintNumber"></a>
+                        <a id="flavour">Mint - Medium</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="mdMintPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="lgMint" class="flavours">
+                    <ul id="newul">
+                        <a id="lgMintNumber"></a>
+                        <a id="flavour">Mint - Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="lgMintPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="xlgMint" class="flavours">
+                    <ul id="newul">
+                        <a id="xlgMintNumber"></a>
+                        <a id="flavour">Mint - Extra Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="xlgMintPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="xxlgMint" class="flavours">
+                    <ul id="newul">
+                        <a id="xxlgMintNumber"></a>
+                        <a id="flavour">Mint - Extra Extra Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="xxlgMintPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="smCherry" class="flavours">
+                    <ul id="newul">
+                        <a id="smCherryNumber"></a>
+                        <a id="flavour">Cherry - Small</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="smCherryPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="mdCherry" class="flavours">
+                    <ul id="newul">
+                        <a id="mdCherryNumber"></a>
+                        <a id="flavour">Cherry - Medium</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="mdCherryPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="lgCherry" class="flavours">
+                    <ul id="newul">
+                        <a id="lgCherryNumber"></a>
+                        <a id="flavour">Cherry - Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="lgCherryPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="xlgCherry" class="flavours">
+                    <ul id="newul">
+                        <a id="xlgCherryNumber"></a>
+                        <a id="flavour">Cherry - Extra Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="xlgCherryPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="xxlgCherry" class="flavours">
+                    <ul id="newul">
+                        <a id="xxlgCherryNumber"></a>
+                        <a id="flavour">Cherry - Extra Extra Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="xxlgCherryPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="smChoc" class="flavours">
+                    <ul id="newul">
+                        <a id="smChocNumber"></a>
+                        <a id="flavour">Chocolate - Small</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="smChocPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="mdChoc" class="flavours">
+                    <ul id="newul">
+                        <a id="mdChocNumber"></a>
+                        <a id="flavour">Chocolate - Medium</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="mdChocPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="lgChoc" class="flavours">
+                    <ul id="newul">
+                        <a id="lgChocNumber"></a>
+                        <a id="flavour">Chocolate - Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="lgChocPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="xlgChoc" class="flavours">
+                    <ul id="newul">
+                        <a id="xlgChocNumber"></a>
+                        <a id="flavour">Chocolate - Extra Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="xlgChocPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="xxlgChoc" class="flavours">
+                    <ul id="newul">
+                        <a id="xxlgChocNumber"></a>
+                        <a id="flavour">Chocolate - Extra Extra Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="xxlgChocPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="smSC" class="flavours">
+                    <ul id="newul">
+                        <a id="smSCNumber"></a>
+                        <a id="flavour">Salted Caramel - Small</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="smSCPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="mdSC" class="flavours">
+                    <ul id="newul">
+                        <a id="mdSCNumber"></a>
+                        <a id="flavour">Salted Caramel - Medium</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="mdSCPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="lgSC" class="flavours">
+                    <ul id="newul">
+                        <a id="lgSCNumber"></a>
+                        <a id="flavour">Salted Caramel - Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="lgSCPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="xlgSC" class="flavours">
+                    <ul id="newul">
+                        <a id="xlgSCNumber"></a>
+                        <a id="flavour">Salted Caramel - Extra Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="xlgSCPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="xxlgSC" class="flavours">
+                    <ul id="newul">
+                        <a id="xxlgSCNumber"></a>
+                        <a id="flavour">Salted Caramel - Extra Extra Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="xxlgSCPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="smStrawberry" class="flavours">
+                    <ul id="newul">
+                        <a id="smStrawberryNumber"></a>
+                        <a id="flavour">Strawberry - Small</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="smStrawberryPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="mdStrawberry" class="flavours">
+                    <ul id="newul">
+                        <a id="mdStrawberryNumber"></a>
+                        <a id="flavour">Strawberry - Medium</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="mdStrawberryPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="lgStrawberry" class="flavours">
+                    <ul id="newul">
+                        <a id="lgStrawberryNumber"></a>
+                        <a id="flavour">Strawberry - Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="lgStrawberryPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="xlgStrawberry" class="flavours">
+                    <ul id="newul">
+                        <a id="xlgStrawberryNumber"></a>
+                        <a id="flavour">Strawberry - Extra Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="xlgStrawberryPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="xxlgStrawberry" class="flavours">
+                    <ul id="newul">
+                        <a id="xxlgStrawberryNumber"></a>
+                        <a id="flavour">Strawberry - Extra Extra Large</a>
+                    </ul>
+
+                    <ul id="prices">
+                        <a id="xxlgStrawberryPrice"></a>
+                    </ul>
+                </div>
+
+                <div id="amount">
+                    <ul id="newul">
+                        <a>Total:</a>
+                        <a id="totalPrice"></a>
+                    </ul>
+                </div>
+        </div>
+    </section>
+
+    <!--Basket - Small Screen-->
+    <section class="container-fluid justify-content-center col-8" id="summarysmall">
+        <div id="summarybackgroundsmall">
+
+            <div id="text">
+
+                <div id="total">
+                    <ul id="newul">
+                        <a>Basket</a>
+                    </ul>
+                </div>
+
+                <div id="smVanillaS" class="flavours">
+                    <ul id="newul">
+                        <a id="smVanillaNumberS"></a>
+                        <a id="flavour">Vanilla - Small</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="smVanillaPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="mdVanillaS" class="flavours">
+                    <ul id="newul">
+                        <a id="mdVanillaNumberS"></a>
+                        <a id="flavour">Vanilla - Medium</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="mdVanillaPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="lgVanillaS" class="flavours">
+                    <ul id="newul">
+                        <a id="lgVanillaNumberS"></a>
+                        <a id="flavour">Vanilla - Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="lgVanillaPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="xlgVanillaS" class="flavours">
+                    <ul id="newul">
+                        <a id="xlgVanillaNumberS"></a>
+                        <a id="flavour">Vanilla - Extra Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="xlgVanillaPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="xxlgVanillaS" class="flavours">
+                    <ul id="newul">
+                        <a id="xxlgVanillaNumberS"></a>
+                        <a id="flavour">Vanilla - Extra Extra Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="xxlgVanillaPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="smDFVanillaS" class="flavours">
+                    <ul id="newul">
+                        <a id="smDFVanillaNumberS"></a>
+                        <a id="flavour">Dairy Free Vanilla - Small</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="smDFVanillaPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="mdDFVanillaS" class="flavours">
+                    <ul id="newul">
+                        <a id="mdDFVanillaNumberS"></a>
+                        <a id="flavour">Dairy Free Vanilla - Medium</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="mdDFVanillaPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="lgDFVanillaS" class="flavours">
+                    <ul id="newul">
+                        <a id="lgDFVanillaNumberS"></a>
+                        <a id="flavour">Dairy Free Vanilla - Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="lgDFVanillaPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="xlgDFVanillaS" class="flavours">
+                    <ul id="newul">
+                        <a id="xlgDFVanillaNumberS"></a>
+                        <a id="flavour">Dairy Free Vanilla - Extra Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="xlgDFVanillaPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="xxlgDFVanillaS" class="flavours">
+                    <ul id="newul">
+                        <a id="xxlgDFVanillaNumberS"></a>
+                        <a id="flavour">Dairy Free Vanilla - Extra Extra Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="xxlgDFVanillaPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="smHoneycombS" class="flavours">
+                    <ul id="newul">
+                        <a id="smHoneycombNumberS"></a>
+                        <a id="flavour">Honeycomb - Small</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="smHoneycombPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="mdHoneycombS" class="flavours">
+                    <ul id="newul">
+                        <a id="mdHoneycombNumberS"></a>
+                        <a id="flavour">Honeycomb - Medium</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="mdHoneycombPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="lgHoneycombS" class="flavours">
+                    <ul id="newul">
+                        <a id="lgHoneycombNumberS"></a>
+                        <a id="flavour">Honeycomb - Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="lgHoneycombPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="xlgHoneycombS" class="flavours">
+                    <ul id="newul">
+                        <a id="xlgHoneycombNumberS"></a>
+                        <a id="flavour">Honeycomb - Extra Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="xlgHoneycombPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="xxlgHoneycombS" class="flavours">
+                    <ul id="newul">
+                        <a id="xxlgHoneycombNumberS"></a>
+                        <a id="flavour">Honeycomb - Extra Extra Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="xxlgHoneycombPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="smRNRS" class="flavours">
+                    <ul id="newul">
+                        <a id="smRNRNumberS"></a>
+                        <a id="flavour">Rum 'n' Raisin - Small</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="smRNRPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="mdRNRS" class="flavours">
+                    <ul id="newul">
+                        <a id="mdRNRNumberS"></a>
+                        <a id="flavour">Rum 'n' Raisin - Medium</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="mdRNRPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="lgRNRS" class="flavours">
+                    <ul id="newul">
+                        <a id="lgRNRNumberS"></a>
+                        <a id="flavour">Rum 'n' Raisin - Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="lgRNRPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="xlgRNRS" class="flavours">
+                    <ul id="newul">
+                        <a id="xlgRNRNumberS"></a>
+                        <a id="flavour">Rum 'n' Raisin - Extra Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="xlgRNRPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="xxlgRNRS" class="flavours">
+                    <ul id="newul">
+                        <a id="xxlgRNRNumberS"></a>
+                        <a id="flavour">Rum 'n' Raisin - Extra Extra Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="xxlgRNRPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="smMintS" class="flavours">
+                    <ul id="newul">
+                        <a id="smMintNumberS"></a>
+                        <a id="flavour">Mint - Small</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="smMintPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="mdMintS" class="flavours">
+                    <ul id="newul">
+                        <a id="mdMintNumberS"></a>
+                        <a id="flavour">Mint - Medium</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="mdMintPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="lgMintS" class="flavours">
+                    <ul id="newul">
+                        <a id="lgMintNumberS"></a>
+                        <a id="flavour">Mint - Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="lgMintPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="xlgMintS" class="flavours">
+                    <ul id="newul">
+                        <a id="xlgMintNumberS"></a>
+                        <a id="flavour">Mint - Extra Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="xlgMintPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="xxlgMintS" class="flavours">
+                    <ul id="newul">
+                        <a id="xxlgMintNumberS"></a>
+                        <a id="flavour">Mint - Extra Extra Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="xxlgMintPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="smCherryS" class="flavours">
+                    <ul id="newul">
+                        <a id="smCherryNumberS"></a>
+                        <a id="flavour">Cherry - Small</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="smCherryPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="mdCherryS" class="flavours">
+                    <ul id="newul">
+                        <a id="mdCherryNumberS"></a>
+                        <a id="flavour">Cherry - Medium</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="mdCherryPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="lgCherryS" class="flavours">
+                    <ul id="newul">
+                        <a id="lgCherryNumberS"></a>
+                        <a id="flavour">Cherry - Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="lgCherryPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="xlgCherryS" class="flavours">
+                    <ul id="newul">
+                        <a id="xlgCherryNumberS"></a>
+                        <a id="flavour">Cherry - Extra Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="xlgCherryPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="xxlgCherryS" class="flavours">
+                    <ul id="newul">
+                        <a id="xxlgCherryNumberS"></a>
+                        <a id="flavour">Cherry - Extra Extra Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="xxlgCherryPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="smChocS" class="flavours">
+                    <ul id="newul">
+                        <a id="smChocNumberS"></a>
+                        <a id="flavour">Chocolate - Small</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="smChocPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="mdChocS" class="flavours">
+                    <ul id="newul">
+                        <a id="mdChocNumberS"></a>
+                        <a id="flavour">Chocolate - Medium</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="mdChocPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="lgChocS" class="flavours">
+                    <ul id="newul">
+                        <a id="lgChocNumberS"></a>
+                        <a id="flavour">Chocolate - Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="lgChocPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="xlgChocS" class="flavours">
+                    <ul id="newul">
+                        <a id="xlgChocNumberS"></a>
+                        <a id="flavour">Chocolate - Extra Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="xlgChocPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="xxlgChocS" class="flavours">
+                    <ul id="newul">
+                        <a id="xxlgChocNumberS"></a>
+                        <a id="flavour">Chocolate - Extra Extra Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="xxlgChocPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="smSCS" class="flavours">
+                    <ul id="newul">
+                        <a id="smSCNumberS"></a>
+                        <a id="flavour">Salted Caramel - Small</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="smSCPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="mdSCS" class="flavours">
+                    <ul id="newul">
+                        <a id="mdSCNumberS"></a>
+                        <a id="flavour">Salted Caramel - Medium</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="mdSCPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="lgSCS" class="flavours">
+                    <ul id="newul">
+                        <a id="lgSCNumberS"></a>
+                        <a id="flavour">Salted Caramel - Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="lgSCPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="xlgSCS" class="flavours">
+                    <ul id="newul">
+                        <a id="xlgSCNumberS"></a>
+                        <a id="flavour">Salted Caramel - Extra Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="xlgSCPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="xxlgSCS" class="flavours">
+                    <ul id="newul">
+                        <a id="xxlgSCNumberS"></a>
+                        <a id="flavour">Salted Caramel - Extra Extra Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="xxlgSCPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="smStrawberryS" class="flavours">
+                    <ul id="newul">
+                        <a id="smStrawberryNumberS"></a>
+                        <a id="flavour">Strawberry - Small</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="smStrawberryPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="mdStrawberryS" class="flavours">
+                    <ul id="newul">
+                        <a id="mdStrawberryNumberS"></a>
+                        <a id="flavour">Strawberry - Medium</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="mdStrawberryPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="lgStrawberryS" class="flavours">
+                    <ul id="newul">
+                        <a id="lgStrawberryNumberS"></a>
+                        <a id="flavour">Strawberry - Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="lgStrawberryPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="xlgStrawberryS" class="flavours">
+                    <ul id="newul">
+                        <a id="xlgStrawberryNumberS"></a>
+                        <a id="flavour">Strawberry - Extra Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="xlgStrawberryPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="xxlgStrawberryS" class="flavours">
+                    <ul id="newul">
+                        <a id="xxlgStrawberryNumberS"></a>
+                        <a id="flavour">Strawberry - Extra Extra Large</a>
+                    </ul>
+
+                    <ul id="pricesS">
+                        <a id="xxlgStrawberryPriceS"></a>
+                    </ul>
+                </div>
+
+                <div id="amount">
+                    <ul id="newul">
+                        <a>Total:</a>
+                        <a id="totalPriceS"></a>
+                    </ul>
+                </div>
+        </div>
+    </section>
+
+    <!--Payment form - Large screen-->
+    <div class="container" id="paymentblocklarge">
+        <section class="container col-6" id="paymentform">
+
+            <form id="PayForm">
+                <h4 id="paymentdetails">Personal Details</h4>
+                <label for="fname" class="col-form-label">First Name:</label><br>
+                <input type="text" id="fname" name="fname" class="col-11" required><br>
+                <label for="lname" class="col-form-label" id="lnamelabel">Last Name:</label><br>
+                <input type="text" id="lname" name="lname" class="col-11" required><br>
+
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="deliveryType" class="form-check-input" value="delivery" id="homedelivery">
+                    <label class="form-check-label" for="homedelivery">Home delivery</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="deliveryType" class="form-check-input" value="pickup" id="pickup">
+                    <label class="form-check-label" for="pickup">Self pick-up</label>
+                </div>
+                <br>
+
+                <div>
+                    <label for="buildingname" class="col-form-label">Building name / House number:</label><br>
+                    <input type="text" id="buildingname" name="buildingname" class="col-11" disabled required><br>
+                    <label for="streetaddress" class="col-form-label">Street:</label><br>
+                    <input type="text" id="streetaddress" name="streetaddress" class="col-11" disabled><br>
+                    <label for="postcode" class="col-form-label">Postcode:</label><br>
+                    <input type="text" id="postcode" name="postcode" class="col-11" disabled required><br>
+                </div>
+
+                <h4 id="paymentdetails">Card Details</h4>
+                <label for="paymenttype" class="col-form-label">Payment Type:</label>
+                <select id="paymenttype" class="col-4">
+                    <option value="Amex">American Express</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Mastercard">Mastercard</option>
+                </select><br>
+
+                <label for="cardnumber" class="col-form-label">Card Number:</label><br>
+                <input type="text" id="cardnumber" name="cardnumber" class="col-11"><br>
+                <label for="expirydate" class="col-form-label">Expiry Date:</label><br>
+                <input type="month" id="expirydate" name="expirydate" class="col-11"><br>
+                <label for="CVV" id="CVVlabel" class="col-form-label">CVV:</label><br>
+                <input type="number" id="CVV" name="CVV" min="100" max="999" class="col-11"><br>
+                <label for="phonenumber" class="col-form-label col-11">Phone Number:</label><br>
+                <input type="text" id="phonenumber" name="phonenumber" class="col-11">
+
+            </form>
+        </section>
+    </div>
+
+     <!--Payment form - Small screen-->
+     <div class="container col-8" id="paymentblocksmall">
+        <div class="row justify-content-center" id="paymentformsmall">
+
+            <form id="PayFormSmall">
+                <h4 id="paymentdetails">PERSONAL DETAILS</h4>
+                <label for="fname" class="col-form-label">First Name:</label><br>
+                <input type="text" id="fname" name="fname" class="col-11" required><br>
+                <label for="lname" class="col-form-label" id="lnamelabel">Last Name:</label><br>
+                <input type="text" id="lname" name="lname" class="col-11" required><br>
+
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="deliveryType" class="form-check-input" value="delivery" id="homedelivery1">
+                    <label class="form-check-label" for="homedelivery">Home delivery</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input type="radio" name="deliveryType" class="form-check-input" value="pick up" id="pickup1">
+                    <label class="form-check-label" for="pickup">Self pick-up</label>
+                </div>
+                <br>
+
+                <div>
+                    <label for="buildingname" class="col-form-label">Building name / House number:</label><br>
+                    <input type="text" id="buildingname1" name="buildingname" class="col-11" disabled required><br>
+                    <label for="streetaddress" class="col-form-label">Street:</label><br>
+                    <input type="text" id="streetaddress1" name="streetaddress" class="col-11" disabled required><br>
+                    <label for="postcode" class="col-form-label">Postcode:</label><br>
+                    <input type="text" id="postcode1" name="postcode" class="col-11" disabled required><br>
+                </div>
+
+                <h4 id="paymentdetails">CARD DETAILS</h4>
+                <label for="paymenttype" class="col-form-label">Payment Type:</label>
+                <select id="paymenttype" class="col-4">
+                    <option value="Amex">American Express</option>
+                    <option value="Visa">Visa</option>
+                    <option value="Mastercard">Mastercard</option>
+                </select><br>
+
+                <label for="cardnumber" class="col-form-label">Card Number:</label><br>
+                <input type="text" id="cardnumber" name="cardnumber" class="col-11"><br>
+                <label for="expirydate" class="col-form-label">Expiry Date:</label><br>
+                <input type="month" id="expirydate" name="expirydate" class="col-11"><br>
+                <label for="CVV" id="CVVlabel" class="col-form-label">CVV:</label><br>
+                <input type="number" id="CVV" name="CVV" min="100" max="999" class="col-11"><br>
+                <label for="phonenumber" class="col-form-label col-11">Phone Number:</label><br>
+                <input type="text" id="phonenumber" name="phonenumber" class="col-11">
+
+            </form>  
+            
+        </div>
+    </div>
+
+
+    <!--Bootstrap scripts-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+<footer>
+
+    <div class="navbar fixed-bottom p-4" id="footer">
+        <div class="container-fluid row justify-content-center">
+        <button href="#" class="btn btn-outline-secondary text-secondary nav-item" id="button4" form="PayForm" type="reset">Reset</button>
+        <button href="#" class="btn btn-outline-secondary text-secondary nav-item" class="button4" id="submitButton" form="Payform" type="submit">Order</button>
+        </div>
+     </div>
+
+</footer>
